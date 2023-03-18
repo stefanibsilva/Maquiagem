@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Maquiagem;
 use Illuminate\Http\Request;
 
 class MaquiagensController extends Controller
@@ -9,7 +10,10 @@ class MaquiagensController extends Controller
     //*Lista todas as makes cadastradas */
     public function index ()
     {
-        //
+        // Pega todos os registos da tabela relacionada ao modelo Make
+        $maquiagens = Maquiagem::all();
+
+        return view('maquiagens.index', compact('maquiagens'));
     }
 
     /* Mostra o formulário para criar uma nova make*/
